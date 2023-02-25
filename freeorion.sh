@@ -29,11 +29,13 @@ b_tr () {
 					add_slash=""
 				fi
 				b_str2=`echo "$b_str0" | sed 's/>.*//'` #This is the substring between < and >. Это подстрока между < и >
-				b_str3=`echo "$b_str0" | sed "s/$b_str2.//"` #This is the substring after >. Это подстрока после >
+				tmp_str=`echo "$b_str2" | sed 's/\//./g'` #Replace / with . not to confuse sed. Заменяем / на . чтобы не сбивать с толку sed
+				b_str3=`echo "$b_str0" | sed "s/${tmp_str}.//"` #This is the substring after >. Это подстрока после >
 				b_str2="${add_slash}${b_str2}"
 			else #This line contains < in the middle. Это строка содержит < в середине
 				b_str1=`echo "$b_inp" | sed 's/<.*//'` #This is the substring before <. Это подстрока до <
-				b_str0=`echo "$b_inp" | sed "s/$b_str1.//"`
+				tmp_str=`echo "$b_str1" | sed 's/\//./g'` #Replace / with . not to confuse sed. Заменяем / на . чтобы не сбивать с толку sed
+				b_str0=`echo "$b_inp" | sed "s/${tmp_str}.//"`
 				if [[	$b_str0 =~ ^\/.* ]] ; then #Это закрывающий тэг </ >
 					add_slash="/"
 					b_str0=`echo "$b_str0" | sed "s/\///"`
@@ -41,7 +43,8 @@ b_tr () {
 					add_slash=""
 				fi
 				b_str2=`echo "$b_str0" | sed 's/>.*//'` #подстрока между < и >
-				b_str3=`echo "$b_str0" | sed "s/$b_str2.//"` #подстрока после >
+				tmp_str=`echo "$b_str2" | sed 's/\//./g'` #Replace / with . not to confuse sed. Заменяем / на . чтобы не сбивать с толку sed
+				b_str3=`echo "$b_str0" | sed "s/${tmp_str}.//"` #подстрока после >
 				b_str2="${add_slash}${b_str2}"
 			fi
 			if [[	$b_str1 =~ [A-Za-z]+ ]] ;
@@ -84,13 +87,15 @@ a_tr () {
 				str1=''
 				str0=`echo "$inp" | sed "s/\[\[//"`
 				str2=`echo "$str0" | sed 's/\]\].*//'` #подстрока внутри [[ и ]]
-				str3=`echo "$str0" | sed "s/${str2}..//"` #подстрока после ]]
+				tmp_str=`echo "$str2" | sed 's/\//./g'` #Replace / with . not to confuse sed. Заменяем / на . чтобы не сбивать с толку sed
+				str3=`echo "$str0" | sed "s/${tmp_str}..//"` #подстрока после ]]
 			else
 				str1=`echo "$inp" | sed 's/\[\[.*//'` #подстрока до [[
-				str11=`echo "$str1" | sed "s/\//./"`
-				str0=`echo "$inp" | sed "s/$str11..//"`
+				tmp_str=`echo "$str1" | sed 's/\//./g'` #Replace / with . not to confuse sed. Заменяем / на . чтобы не сбивать с толку sed
+				str0=`echo "$inp" | sed "s/${tmp_str}..//"`
 				str2=`echo "$str0" | sed 's/\]\].*//'` #подстрока внутри [[ и ]]
-				str3=`echo "$str0" | sed "s/${str2}..//"` #подстрока после ]]
+				tmp_str=`echo "$str2" | sed 's/\//./g'` #Replace / with . not to confuse sed. Заменяем / на . чтобы не сбивать с толку sed
+				str3=`echo "$str0" | sed "s/${tmp_str}..//"` #подстрока после ]]
 			fi
 			trans_ted=$trans_ted$(b_tr "$str1")" [[${str2}]] "
 			inp=$str3
