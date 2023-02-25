@@ -8,11 +8,11 @@ Before using the translation script, obtain a file with English texts, for examp
 For the script to work, you need to install the translate-shell application: https://github.com/soimort/translate-shell
 Before running the script, open freeorion.sh for editing, replace ru with your language code.
 Make the script executable
-chmod +x freeorion.sh
+'''chmod +x freeorion.sh'''
 To run the script, go to its folder and run like this:
-./freeorion.sh >> [your language code].txt
+'''./freeorion.sh >> [your language code].txt'''
 The translate-shell app allows you to use a translation engine from different companies. To use a different one, replace in frreorion.sh google with the name of another translator. The list of available translators can be viewed by running in the console
-trans -S
+'''trans -S'''
 
 
 
@@ -22,8 +22,8 @@ trans -S
 Для работы скрипта необходимо установить приложение translate-shell: https://github.com/soimort/translate-shell 
 Перед запуском скрипта откройте freeorion.sh на редактирование, замените ru кодом вашего языка. 
 Сделайте скрипт исполняемым 
-chmod + х freeorion.sh
+'''chmod + х freeorion.sh'''
 Для запуска скрипта перейдите в его папку и запустите так:
-./freeorion.sh >> [код вашего языка].txt
+'''./freeorion.sh >> [код вашего языка].txt'''
 Приложение translate-shell позволяет использовать механизм перевода от разных компаний. Чтобы использовать другой замените в frreorion.sh google на название другого переводчика. Список доступных переводчиков можно посмотреть выполнив в консоли 
-trans -S 
+'''trans -S'''
