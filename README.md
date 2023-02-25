@@ -25,9 +25,7 @@ The translate-shell app allows you to use a translation engine from different co
 
 
 
-
-
-Это скрипт перевода языкового файла игры FreeOrion (https://freeorion.org)
+### Это скрипт перевода языкового файла игры FreeOrion (https://freeorion.org)
 
 Если в игре нет языкового файла вашего языка (или он устарел, что вполне возможно, учитывая продолжающуюся разработку игры), используйте этот скрипт.
 
