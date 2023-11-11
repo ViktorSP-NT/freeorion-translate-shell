@@ -29,7 +29,7 @@ The translate-shell app allows you to use a translation engine from different co
 
 Если в игре нет языкового файла вашего языка (или он устарел, что вполне возможно, учитывая продолжающуюся разработку игры), используйте этот скрипт.
 
-Перед использованием скрипта перевода добудьте файл с текстами английского языка en.txt, например, установив игру FreeOrion (https://github.com/freeorion/freeorion/releases) и порывшись в директории stringtables и положите его в директорию со скриптом.
+Перед использованием скрипта перевода добудьте актуальный файл с текстами английского языка en.txt, например, установив игру FreeOrion (https://github.com/freeorion/freeorion/releases) и порывшись в директории stringtables и положите его в директорию со скриптом.
 
 Для работы скрипта необходимо установить приложение translate-shell: https://github.com/soimort/translate-shell 
 Перед запуском скрипта откройте freeorion.sh на редактирование, замените ru кодом вашего языка. 
